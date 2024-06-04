@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  web:
+    image: directus/directus:latest
+    container_name: directus
+    restart: always
+    ports:
+      - ${APP_PORT}:8055
+    networks:
+      - default
+    volumes:
+      - ./data:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      - SECRET=${APP_KEY}
+      - ADMIN_EMAIL=${APP_USER}
+      - ADMIN_PASSWORD=${APP_PASS}
+      - DB_CLIENT=sqlite3
+      - DB_FILENAME=/directus/database/data.db
+      - WEBSOCKETS_ENABLED=true
+
+networks:
+  default:
+    driver: bridge
