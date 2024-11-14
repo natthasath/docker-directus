@@ -1,3 +1,4 @@
 .env
 .db
 /uploads/*
+/data/data.db

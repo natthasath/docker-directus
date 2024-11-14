@@ -9,6 +9,7 @@ services:
     networks:
       - default
     volumes:
+      - docker_directus_data:/directus/database
       - ./data:/directus/database
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
@@ -22,4 +23,10 @@ services:
 
 networks:
   default:
+    name: docker_directus_network
     driver: bridge
+
+volumes:
+  data:
+    name: docker_directus_data
+    driver: local
