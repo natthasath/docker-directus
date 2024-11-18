@@ -9,7 +9,7 @@ services:
     networks:
       - default
     volumes:
-      - docker_directus_data:/directus/database
+      - data:/directus/database
       - ./data:/directus/database
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
